@@ -1,0 +1,9 @@
+.:53 {
+    auto devenv.test {
+        directory ./zones
+	}
+    cache
+    health
+    errors
+    log
+}

@@ -1,0 +1,27 @@
+version: "3.9"
+
+services:
+  hello-world:
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    environment:
+      # required by nginx-proxy
+      VIRTUAL_HOST: "hello-world.devenv.test"
+
+      # # use this for nginx-proxy if your app exposes multiple ports
+      # VIRTUAL_PORT: "8080"
+
+      # used by the hello-world app (to demonstrate the port bind)
+      BIND_ADDRESS: ":8080"
+    expose:
+      # port of your http service that should be visible to nginx-proxy
+      - '8080'
+    networks:
+      - proxy
+
+networks:
+  proxy:
+    external:
+      # nginx-proxy network
+      name: nginx-proxy
