@@ -1,6 +1,6 @@
 # DevEnv
 
-This is a set of scripts that facilitate the use of https on a local host for any project you run in Docker.
+This is a set of scripts that facilitates the use of https on a local host for any project you run in Docker.
 
 ## Contents
 
