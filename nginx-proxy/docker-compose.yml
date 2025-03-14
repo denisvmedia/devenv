@@ -1,5 +1,3 @@
-version: '3'
-
 services:
   nginx-proxy:
     image: jwilder/nginx-proxy:alpine
@@ -11,8 +9,9 @@ services:
     volumes:
       - /var/run/docker.sock:/tmp/docker.sock:ro
       - ./certs:/etc/nginx/certs
+      - ./my_proxy.conf:/etc/nginx/conf.d/my_proxy.conf:ro
 
 networks:
   default:
-    external:
-      name: nginx-proxy
+    name: nginx-proxy
+    external: true
